@@ -1,0 +1,24 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/offOnSiteButtonLayoutId"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/splashImage1Id"
+        android:contentDescription="SplashImage1"
+        android:layout_marginTop="@dimen/activity_main_top_margin"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/splashImage2Id"
+        android:contentDescription="SplashImage2"
+        android:layout_below="@+id/splashImage1Id"
+        android:paddingTop="@dimen/activity_main_top2_margin"/>
+</RelativeLayout>

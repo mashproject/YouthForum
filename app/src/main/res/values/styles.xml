@@ -1,0 +1,9 @@
+<resources>
+    <color name="whiteBack">#ffffffff</color>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/whiteBack</item>
+    </style>
+
+</resources>
