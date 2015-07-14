@@ -24,6 +24,10 @@
             android:name=".EventPage"
             android:label="@string/title_activity_event_page" >
         </activity>
+        <activity
+            android:name=".EventSpeakerPage"
+            android:label="@string/title_activity_event_speaker_page" >
+        </activity>
     </application>
 
 </manifest>

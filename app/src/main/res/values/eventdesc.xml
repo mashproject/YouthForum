@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="eventName">Default Event</string>
+    <string name="eventTime">HH:MM:SS</string>
+    <string name="eventLocationVenue">Venue Name</string>
+    <string name="eventLocationStreet">Street Name</string>
+    <string name="eventLocationCity">City Name</string>
+    <string name="eventLocationPin">Pin Code</string>
+    <string name="eventTheme">Theme Name</string>
+    <string name="eventSummary">Summary of Event</string>
+</resources>
