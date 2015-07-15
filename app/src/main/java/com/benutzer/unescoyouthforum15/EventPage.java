@@ -1,7 +1,6 @@
 package com.benutzer.unescoyouthforum15;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
@@ -40,12 +39,14 @@ public class EventPage extends ActionBarActivity {
                 handleEventData.sendEmptyMessage(0);
             }
         };
+
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 
     private void displayEventData(){
         ImageView eventImage = (ImageView) findViewById(R.id.eventPageImageId);
         ScrollView eventTextView = (ScrollView) findViewById(R.id.scrollDescViewId);
-        String eventDescription = new String();
 
         designEventDescString(eventTextView);
         eventImage.setImageResource(R.drawable.splashimage2);
@@ -100,7 +101,7 @@ public class EventPage extends ActionBarActivity {
 
     public void speakerListGenerator(View view){
         int eventId = 1;
-        Intent intent = new Intent(EventSpeakerPage.class);
+        Intent intent = new Intent(this ,EventSpeakerPage.class);
 
         /*
         code to retrieve the event id to be passed to new activity
@@ -112,7 +113,7 @@ public class EventPage extends ActionBarActivity {
 
     public void directionMapGenerator(View view){
         int eventId = 1; //would not be hardcoded
-        Intent intent = new Intent(EventMapPage.class);
+        Intent intent = new Intent(this, EventMapPage.class);
 
         /*
         code to retrieve the event id to be passed to new activity

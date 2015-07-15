@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="speakerName">Speaker Name</string>
+    <string name="speakerPosition">Position</string>
+    <string name="speakerTwitterHandle">Twitter Handle</string>
+    <string name="speakerEvent">Speaker Event</string>
+</resources>

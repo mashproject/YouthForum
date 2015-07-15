@@ -6,57 +6,57 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import android.widget.ImageView;
 
 
-public class EventSpeakerPage extends ActionBarActivity {
-    Handler handleSpeakerDisplay = new Handler(){
+public class EventMapPage extends ActionBarActivity {
+    int eventId;
+    Handler handleMapDisplay = new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            displaySpeakerData();
+            displayStaticMap();
         }
     };
-    int eventId;
-    String speakerName[];
-    ListAdapter listAdapter;
-    ListView listView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_speaker_page);
+        setContentView(R.layout.activity_event_map_page);
 
         //gathering data from past activity that was passed via intent extras
         Bundle bundle = getIntent().getExtras();
         eventId = ((Integer) bundle.get("eventId")).intValue();
+
+        loadStaticMap();
     }
 
-    private void loadSpeakerList(){
+    private void loadStaticMap(){
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 /*
-                database linking code and retrieval using eventId
+                load static image url from database using eventId
                  */
                 /*
-                initialise speaker name list for retrieving name of speakers in an event
+                load image from url
                  */
-                speakerName = new String[]{"1","2", "3", "4"};
-                handleSpeakerDisplay.sendEmptyMessage(0);
+                handleMapDisplay.sendEmptyMessage(0);
             }
         };
     }
 
-    private void displaySpeakerData(){
-        listAdapter = new SpeakerAdapter(this, speakerName, eventId);
-        listView.setAdapter(listAdapter);
+    private void displayStaticMap(){
+        ImageView imageView = (ImageView) findViewById(R.id.staticMapImageViewId);
+
+        /*
+        code to load downloaded image from sdcard
+         */
+        imageView.setImageResource(R.drawable.iconplaceholder);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_event_speaker_page, menu);
+        getMenuInflater().inflate(R.menu.menu_event_map_page, menu);
         return true;
     }
 
