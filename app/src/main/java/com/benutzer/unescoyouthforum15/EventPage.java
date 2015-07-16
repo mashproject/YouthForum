@@ -21,11 +21,15 @@ public class EventPage extends ActionBarActivity {
             displayEventData();
         }
     };
+    int eventId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_page);
+
+        Bundle bundle = getIntent().getExtras();
+        eventId = ((Integer) bundle.get("eventId")).intValue();
         loadEventData();
     }
 
@@ -34,7 +38,7 @@ public class EventPage extends ActionBarActivity {
             @Override
             public void run() {
                 /*
-                code to load event image and information from site
+                code to load event image and information from site using event id
                  */
                 handleEventData.sendEmptyMessage(0);
             }
@@ -100,7 +104,6 @@ public class EventPage extends ActionBarActivity {
     }
 
     public void speakerListGenerator(View view){
-        int eventId = 1;
         Intent intent = new Intent(this ,EventSpeakerPage.class);
 
         /*

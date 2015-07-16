@@ -30,6 +30,8 @@ public class EventSpeakerPage extends ActionBarActivity {
         //gathering data from past activity that was passed via intent extras
         Bundle bundle = getIntent().getExtras();
         eventId = ((Integer) bundle.get("eventId")).intValue();
+
+        loadSpeakerList();
     }
 
     private void loadSpeakerList(){

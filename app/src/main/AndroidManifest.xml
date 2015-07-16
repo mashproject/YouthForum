@@ -32,6 +32,10 @@
             android:name=".EventMapPage"
             android:label="@string/title_activity_event_map_page" >
         </activity>
+        <activity
+            android:name=".EventListPage"
+            android:label="@string/title_activity_event_list_page" >
+        </activity>
     </application>
 
 </manifest>

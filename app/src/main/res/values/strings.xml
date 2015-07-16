@@ -12,4 +12,5 @@
     <string name="eventPageDirectionsButtonString">Directions</string>
     <string name="title_activity_event_speaker_page">EventSpeakerPage</string>
     <string name="title_activity_event_map_page">EventMapPage</string>
+    <string name="title_activity_event_list_page">EventListPage</string>
 </resources>
