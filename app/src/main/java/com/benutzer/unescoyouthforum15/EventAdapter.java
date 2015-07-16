@@ -37,7 +37,7 @@ public class EventAdapter extends ArrayAdapter{
 
         loadEventAdapterData(position);
 
-        while(display){
+       //while(!display){}
             TextView textView = (TextView) customView.findViewById(R.id.eventAdapterTextVewId);
             TextView textViewHidden = (TextView) customView.findViewById(R.id.hiddenViewEventId);
             ImageView imageView = (ImageView) customView.findViewById(R.id.eventAdapterImageViewId);
@@ -47,14 +47,14 @@ public class EventAdapter extends ArrayAdapter{
              */
 
             textView.setText(
-                    "" + getContext().getResources().getString(R.string.eventAdapterName) + "\n"
+                    "" + getContext().getResources().getString(R.string.eventAdapterName)  + " " + res[position]+ "" + "\n"
                     + getContext().getResources().getString(R.string.eventAdapterDesc) + "\n"
             );
             textViewHidden.setText(res[position]); //only for prototype
             imageView.setImageResource(R.drawable.splashimage2); //only for prototype
 
             display = false;
-        }
+       // }
 
         return customView;
     }

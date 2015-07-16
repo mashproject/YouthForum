@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 
 public class EventMapPage extends ActionBarActivity {
-    int eventId;
+    String eventId;
     Handler handleMapDisplay = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -24,7 +24,7 @@ public class EventMapPage extends ActionBarActivity {
 
         //gathering data from past activity that was passed via intent extras
         Bundle bundle = getIntent().getExtras();
-        eventId = ((Integer) bundle.get("eventId")).intValue();
+        eventId = bundle.get("eventId").toString();
 
         loadStaticMap();
     }
@@ -42,6 +42,8 @@ public class EventMapPage extends ActionBarActivity {
                 handleMapDisplay.sendEmptyMessage(0);
             }
         };
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 
     private void displayStaticMap(){
@@ -58,20 +60,5 @@ public class EventMapPage extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_event_map_page, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

@@ -21,7 +21,7 @@ public class EventPage extends ActionBarActivity {
             displayEventData();
         }
     };
-    int eventId;
+    String eventId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +29,18 @@ public class EventPage extends ActionBarActivity {
         setContentView(R.layout.activity_event_page);
 
         Bundle bundle = getIntent().getExtras();
-        eventId = ((Integer) bundle.get("eventId")).intValue();
+        eventId = bundle.get("eventId").toString();
         loadEventData();
+        //displayEventData();
     }
 
     private void loadEventData(){
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                /*
-                code to load event image and information from site using event id
-                 */
+
+                //code to load event image and information from site using event id
+
                 handleEventData.sendEmptyMessage(0);
             }
         };
@@ -57,50 +58,29 @@ public class EventPage extends ActionBarActivity {
     }
 
     private void designEventDescString(ScrollView scrollView){
-        //TextView textView = new TextView(this);
-        scrollView.addView(new TextView(this){
-            @Override
-            public void setText(CharSequence text, BufferType type) {
-                super.setText("Name : " + getResources().getString(R.string.eventName));
-            }
-        });
-        scrollView.addView(new TextView(this){
-            @Override
-            public void setText(CharSequence text, BufferType type) {
-                super.setText("Timing : " + getResources().getString(R.string.eventTime));
-            }
-        });
-        scrollView.addView(new TextView(this){
-            @Override
-            public void setText(CharSequence text, BufferType type) {
-                super.setText("Venue : " + getResources().getString(R.string.eventLocationVenue));
-            }
-        });
-        scrollView.addView(new TextView(this){
-            @Override
-            public void setText(CharSequence text, BufferType type) {
-                super.setText("Street : " + getResources().getString(R.string.eventLocationStreet));
-            }
-        });
-        scrollView.addView(new TextView(this){
-            @Override
-            public void setText(CharSequence text, BufferType type) {
-                super.setText("City : " + getResources().getString(R.string.eventLocationCity));
-            }
-        });
-        scrollView.addView(new TextView(this){
-            @Override
-            public void setText(CharSequence text, BufferType type) {
-                super.setText("Pin : " + getResources().getString(R.string.eventLocationPin));
-            }
-        });
-        scrollView.addView(new TextView(this){
-            @Override
-            public void setText(CharSequence text, BufferType type) {
-                super.setText("Summary : " + getResources().getString(R.string.eventSummary));
-            }
-        });
+        TextView textViewName = (TextView) scrollView.findViewById(R.id.scrollTextViewEventName);
+        textViewName.setText("Name : " + getResources().getString(R.string.eventName));
 
+        TextView textViewTime = (TextView) scrollView.findViewById(R.id.scrollTextViewEventTime);
+        textViewTime.setText("Time : " + getResources().getString(R.string.eventTime));
+
+        TextView textViewLocationVenue = (TextView) scrollView.findViewById(R.id.scrollTextViewEventLocationVenue);
+        textViewLocationVenue.setText("Venue : " + getResources().getString(R.string.eventLocationVenue));
+
+        TextView textViewLocationStreet = (TextView) scrollView.findViewById(R.id.scrollTextViewEventLocationStreet);
+        textViewLocationStreet.setText("Street : " + getResources().getString(R.string.eventLocationStreet));
+
+        TextView textViewLocationCity = (TextView) scrollView.findViewById(R.id.scrollTextViewEventLocationCity);
+        textViewLocationCity.setText("City : " + getResources().getString(R.string.eventLocationCity));
+
+        TextView textViewLocationPin = (TextView) scrollView.findViewById(R.id.scrollTextViewEventLocationPin);
+        textViewLocationPin.setText("PIN : " + getResources().getString(R.string.eventLocationPin));
+
+        TextView textViewTheme = (TextView) scrollView.findViewById(R.id.scrollTextViewEventTheme);
+        textViewTheme.setText("Theme : " + getResources().getString(R.string.eventTheme));
+
+        TextView textViewSummary = (TextView) scrollView.findViewById(R.id.scrollTextViewEventSummary);
+        textViewSummary.setText("Summary : " + getResources().getString(R.string.eventSummary));
     }
 
     public void speakerListGenerator(View view){
@@ -115,7 +95,6 @@ public class EventPage extends ActionBarActivity {
     }
 
     public void directionMapGenerator(View view){
-        int eventId = 1; //would not be hardcoded
         Intent intent = new Intent(this, EventMapPage.class);
 
         /*
@@ -131,20 +110,5 @@ public class EventPage extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_event_page, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

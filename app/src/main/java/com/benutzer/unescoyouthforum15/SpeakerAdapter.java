@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SpeakerAdapter extends ArrayAdapter{
-    int id;
+    String id;
     String[] res;
     boolean display = false;
     Handler handleSpeakerDisplay = new Handler(){
@@ -24,7 +24,7 @@ public class SpeakerAdapter extends ArrayAdapter{
         }
     };
 
-    SpeakerAdapter(Context context, String[] resource, int idResource) {
+    SpeakerAdapter(Context context, String[] resource, String idResource) {
         super(context, R.layout.custom_speaker,resource);
         id = idResource;
         res = resource;
@@ -37,7 +37,7 @@ public class SpeakerAdapter extends ArrayAdapter{
 
         loadSpeakerData(position);
 
-        while(display){
+       // while(display){
             TextView textView = (TextView) customView.findViewById(R.id.speakerTextVewId);
             ImageView imageView = (ImageView) customView.findViewById(R.id.speakerImageViewId);
 
@@ -53,7 +53,7 @@ public class SpeakerAdapter extends ArrayAdapter{
                             + getContext().getResources().getString(R.string.speakerTwitterHandle)
             );
             display = false;
-        }
+      //  }
 
         return customView;
     }

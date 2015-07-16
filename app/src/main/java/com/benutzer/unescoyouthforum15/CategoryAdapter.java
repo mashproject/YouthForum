@@ -36,7 +36,7 @@ public class CategoryAdapter extends ArrayAdapter{
 
         loadCategoryData(position);
 
-        while(display){
+        //while(display){
             TextView textView = (TextView) customView.findViewById(R.id.categoryTextVewId);
             ImageView imageView = (ImageView) customView.findViewById(R.id.categoryImageViewId);
             TextView textViewHidden = (TextView) customView.findViewById(R.id.hiddenViewId);
@@ -52,7 +52,7 @@ public class CategoryAdapter extends ArrayAdapter{
             textViewHidden.setText(res[position]);
 
             display = false;
-        }
+       // }
 
         return customView;
     }

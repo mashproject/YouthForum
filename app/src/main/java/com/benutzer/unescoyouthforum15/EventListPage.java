@@ -22,6 +22,7 @@ public class EventListPage extends ActionBarActivity {
         @Override
         public void handleMessage(Message msg) {
             displayEventList();
+            setListenerToEventList();
         }
     };
 
@@ -32,12 +33,13 @@ public class EventListPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list_page);
+        listView = (ListView) findViewById(R.id.eventListViewId);
 
         Bundle bundle = getIntent().getExtras();
         categoryName = ((String) bundle.get("category"));
 
         loadEventList();
-        setListenerToEventList();
+
     }
 
     private void loadEventList(){
@@ -54,6 +56,8 @@ public class EventListPage extends ActionBarActivity {
                 handleEventListDisplay.sendEmptyMessage(0);
             }
         };
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 
     private void displayEventList(){
@@ -66,18 +70,19 @@ public class EventListPage extends ActionBarActivity {
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        int event = Integer.parseInt((((TextView) view.findViewById(R.id.hiddenViewEventId)).getText()).toString());
+                       String event = ((TextView) view.findViewById(R.id.hiddenViewEventId)).getText().toString();
+
                         createEventPage(event);
                     }
                 }
         );
     }
 
-    private void createEventPage(int id){
-        Intent intent = new Intent(this, EventPage.class);
-        intent.putExtra("eventId", id);
+    private void createEventPage(String id){
+        Intent intenta = new Intent(this, EventPage.class);
+        intenta.putExtra("eventId", id);
 
-        startActivity(intent);
+        startActivity(intenta);
     }
 
     @Override
@@ -85,20 +90,5 @@ public class EventListPage extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_event_list_page, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
