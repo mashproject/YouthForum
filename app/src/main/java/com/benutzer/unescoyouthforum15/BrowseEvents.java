@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-public class BrowseEvents extends ActionBarActivity {
+public class BrowseEvents extends BaseDrawerActivity {
     Handler handleCategoryDisplay = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -29,6 +29,8 @@ public class BrowseEvents extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_events);
+        super.onCreateDrawer();
+
         listView = (ListView) findViewById(R.id.browseEventListID);
 
         loadCategoryList();
