@@ -6,8 +6,8 @@
     android:id="@+id/categoryLinearLayoutId">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:id="@+id/categoryImageViewId"
         android:layout_margin="@dimen/activity_main_top_margin"/>
     <TextView

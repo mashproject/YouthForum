@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-public class EventListPage extends ActionBarActivity {
+public class EventListPage extends BaseDrawerActivity {
     ListAdapter listAdapter;
     ListView listView;
 
@@ -33,6 +33,7 @@ public class EventListPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list_page);
+        super.onCreateDrawer();
         listView = (ListView) findViewById(R.id.eventListViewId);
 
         Bundle bundle = getIntent().getExtras();

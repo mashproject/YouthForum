@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 
-public class EventMapPage extends ActionBarActivity {
+public class EventMapPage extends BaseDrawerActivity {
     String eventId;
     Handler handleMapDisplay = new Handler(){
         @Override
@@ -21,7 +21,7 @@ public class EventMapPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_map_page);
-
+        super.onCreateDrawer();
         //gathering data from past activity that was passed via intent extras
         Bundle bundle = getIntent().getExtras();
         eventId = bundle.get("eventId").toString();

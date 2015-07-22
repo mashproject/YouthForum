@@ -16,4 +16,6 @@
     <string name="title_activity_event_list_page">EventListPage</string>
     <string name="title_activity_base_drawer">BaseDrawerActivity</string>
     <string name="title_activity_about_page">AboutPage</string>
+    <string name="title_activity_news_feed_page">NewsFeedPage</string>
+    <string name="title_activity_partners_page">PartnersPage</string>
 </resources>

@@ -13,7 +13,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 
-public class EventPage extends ActionBarActivity {
+public class EventPage extends BaseDrawerActivity {
 
     Handler handleEventData = new Handler(){
         @Override
@@ -27,6 +27,7 @@ public class EventPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_page);
+        super.onCreateDrawer();
 
         Bundle bundle = getIntent().getExtras();
         eventId = bundle.get("eventId").toString();

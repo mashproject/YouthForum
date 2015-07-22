@@ -59,14 +59,52 @@ public class BaseDrawerActivity extends ActionBarActivity {
 
     private void switchActivities(int pos) {
         switch (pos) {
+            case 0:{
+                break;
+            }
             case 1: {
                 Intent intent = new Intent(this, AboutPage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
+                break;
+            }
+            case 2:{
+                Intent intent = new Intent(this, NewsFeedPage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
+                break;
+            }
+            case 3:{
+                Intent intent = new Intent(this, PartnersPage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
+                break;
+            }
+            case 4:{
                 break;
             }
             case 5: {
                 Intent intent = new Intent(this, BrowseEvents.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
+                break;
+            }
+            case 6:{
+                break;
+            }
+            case 7:{
+                break;
+            }
+            case 8:{
+                break;
+            }
+            case 9:{
+                break;
+            }
+            case 10:{
+                break;
+            }
+            case 11:{
                 break;
             }
         }

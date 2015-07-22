@@ -9,15 +9,12 @@ android:layout_height="match_parent">
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.benutzer.unescoyouthforum15.EventMapPage">
-
-        <ImageView
+        tools:context="com.benutzer.unescoyouthforum15.PartnersPage">
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/staticMapImageViewId"/>
-
+            android:id="@+id/partnerListViewId"></ListView>
     </RelativeLayout>
-
     <!-- The navigation drawer -->
 <ListView android:id="@+id/left_drawer"
     android:layout_width="240dp"
@@ -26,5 +23,5 @@ android:layout_height="match_parent">
     android:choiceMode="singleChoice"
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
-    android:background="#ffffff"/>
+    android:background="#ffffffff"/>
 </android.support.v4.widget.DrawerLayout>

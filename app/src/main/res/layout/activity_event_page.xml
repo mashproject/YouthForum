@@ -1,148 +1,165 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.benutzer.unescoyouthforum15.EventPage">
+<android.support.v4.widget.DrawerLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/drawer_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<!-- The main content view -->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.benutzer.unescoyouthforum15.EventPage">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/eventPageImageId" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="20dp"
-        android:id="@+id/scrollDescViewId"
-        android:layout_below="@+id/eventPageImageId"
-        android:layout_marginTop="@dimen/activity_main_top_margin"
-        android:layout_centerHorizontal="true">
-        <TableLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center">
-            <TableRow>
-                <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/scrollTextViewEventName"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/eventPageImageId" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp"
+            android:id="@+id/scrollDescViewId"
+            android:layout_below="@+id/eventPageImageId"
+            android:layout_marginTop="@dimen/activity_main_top_margin"
+            android:layout_centerHorizontal="true">
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center">
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventName"/>
                 </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/scrollTextViewEventTime"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/scrollTextViewEventLocationVenue"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/scrollTextViewEventLocationStreet"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/scrollTextViewEventLocationCity"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/scrollTextViewEventLocationPin"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/scrollTextViewEventTheme"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/scrollTextViewEventSummary"/>
-            </TableRow>
-        </TableLayout>
-    </ScrollView>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventTime"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventLocationVenue"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventLocationStreet"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventLocationCity"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventLocationPin"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventTheme"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scrollTextViewEventSummary"/>
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/speakerLayoutId"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:clickable="true"
-        android:padding="16dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/scrollDescViewId"
-        android:onClick="speakerListGenerator"
-        android:layout_marginTop="@dimen/activity_main_top_margin">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/speakerButtonImageId"
-            android:adjustViewBounds="true"
-            android:maxHeight="30dp"
-            android:maxWidth="30dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/speakerbuttonicon" />
-
-        <TextView
-            android:id="@+id/speakerButtonTextId"
+        <LinearLayout
+            android:id="@+id/speakerLayoutId"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textSize="24sp"
-            android:paddingRight="30dp"
-            android:gravity="center"
-            android:text="Speaker" />
-    </LinearLayout>
+            android:background="@android:drawable/btn_default"
+            android:clickable="true"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/scrollDescViewId"
+            android:onClick="speakerListGenerator"
+            android:layout_marginTop="@dimen/activity_main_top_margin">
 
-    <LinearLayout
-        android:id="@+id/directionLayoutId"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:clickable="true"
-        android:padding="16dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/speakerLayoutId"
-        android:onClick="directionMapGenerator">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/speakerButtonImageId"
+                android:adjustViewBounds="true"
+                android:maxHeight="30dp"
+                android:maxWidth="30dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/speakerbuttonicon" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/directionButtonImageId"
-            android:adjustViewBounds="true"
-            android:maxHeight="30dp"
-            android:maxWidth="30dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/directionsicon" />
+            <TextView
+                android:id="@+id/speakerButtonTextId"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="24sp"
+                android:paddingRight="30dp"
+                android:gravity="center"
+                android:text="Speaker" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/directionButtonTextId"
+        <LinearLayout
+            android:id="@+id/directionLayoutId"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textSize="24sp"
-            android:paddingRight="30dp"
-            android:gravity="center"
-            android:text="Directions" />
-    </LinearLayout>
+            android:background="@android:drawable/btn_default"
+            android:clickable="true"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/speakerLayoutId"
+            android:onClick="directionMapGenerator">
 
-</RelativeLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/directionButtonImageId"
+                android:adjustViewBounds="true"
+                android:maxHeight="30dp"
+                android:maxWidth="30dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/directionsicon" />
+
+            <TextView
+                android:id="@+id/directionButtonTextId"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="24sp"
+                android:paddingRight="30dp"
+                android:gravity="center"
+                android:text="Directions" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- The navigation drawer -->
+<ListView android:id="@+id/left_drawer"
+    android:layout_width="240dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:choiceMode="singleChoice"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="0dp"
+    android:background="#ffffff"/>
+</android.support.v4.widget.DrawerLayout>

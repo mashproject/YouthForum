@@ -6,8 +6,8 @@
     android:id="@+id/eventAdapterLinearLayoutId">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:id="@+id/eventAdapterImageViewId"
         android:layout_margin="@dimen/activity_main_top_margin"/>
     <TextView
