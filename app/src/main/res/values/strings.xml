@@ -18,4 +18,5 @@
     <string name="title_activity_about_page">AboutPage</string>
     <string name="title_activity_news_feed_page">NewsFeedPage</string>
     <string name="title_activity_partners_page">PartnersPage</string>
+    <string name="title_activity_schedule_page">SchedulePage</string>
 </resources>

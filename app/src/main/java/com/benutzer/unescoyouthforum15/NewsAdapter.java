@@ -31,7 +31,7 @@ public class NewsAdapter extends ArrayAdapter{
         ImageView imageView = (ImageView) customView.findViewById(R.id.newsFeedImageViewId);
         TextView textView = (TextView) customView.findViewById(R.id.newsFeedTextViewId);
 
-        imageView.setImageResource(R.drawable.iconplaceholder);
+        imageView.setImageResource(R.drawable.newsicon);
         textView.setText("News " + res[position]);
 
         return customView;

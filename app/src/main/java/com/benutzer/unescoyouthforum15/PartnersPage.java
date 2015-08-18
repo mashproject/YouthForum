@@ -1,5 +1,6 @@
 package com.benutzer.unescoyouthforum15;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,5 +58,10 @@ public class PartnersPage extends BaseDrawerActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
     }
 }

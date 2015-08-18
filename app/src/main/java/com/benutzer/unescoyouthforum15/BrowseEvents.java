@@ -85,4 +85,8 @@ public class BrowseEvents extends BaseDrawerActivity {
         return true;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }

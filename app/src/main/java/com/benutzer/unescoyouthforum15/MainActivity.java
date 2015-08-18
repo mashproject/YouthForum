@@ -56,9 +56,7 @@ public class MainActivity extends ActionBarActivity {
         //load image from sd card in real app
 
         ImageView imageView1 = (ImageView) findViewById(R.id.splashImage1Id);
-        ImageView imageView2 = (ImageView) findViewById(R.id.splashImage2Id);
-        imageView1.setImageResource(R.drawable.splashimage1);
-        imageView2.setImageResource(R.drawable.splashimage2);
+        imageView1.setImageResource(R.drawable.splashimage);
     };
 
     private void pauseSplashLoadContent(){

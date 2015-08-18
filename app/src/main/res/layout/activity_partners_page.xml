@@ -13,7 +13,8 @@ android:layout_height="match_parent">
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/partnerListViewId"></ListView>
+            android:id="@+id/partnerListViewId"
+            android:dividerHeight="5dp"></ListView>
     </RelativeLayout>
     <!-- The navigation drawer -->
 <ListView android:id="@+id/left_drawer"

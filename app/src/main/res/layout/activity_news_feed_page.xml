@@ -13,7 +13,8 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/newsFeedListViewId"></ListView>
+            android:id="@+id/newsFeedListViewId"
+            android:dividerHeight="5dp"></ListView>
     </RelativeLayout>
     <!-- The navigation drawer -->
     <ListView android:id="@+id/left_drawer"

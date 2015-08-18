@@ -51,10 +51,10 @@ public class BaseDrawerActivity extends ActionBarActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                drawerLayout.closeDrawer(drawerList);
                 switchActivities(position);
             }
         });
-
     }
 
     private void switchActivities(int pos) {
@@ -81,6 +81,9 @@ public class BaseDrawerActivity extends ActionBarActivity {
                 break;
             }
             case 4:{
+                Intent intent = new Intent(this, SchedulePage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
                 break;
             }
             case 5: {
