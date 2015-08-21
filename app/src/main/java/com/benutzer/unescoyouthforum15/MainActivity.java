@@ -11,6 +11,12 @@ import java.util.logging.LogRecord;
 
 
 public class MainActivity extends ActionBarActivity {
+        Handler handleSplashImageDisplay = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                displaySplashImage();
+            }
+        };
 
         Handler handleActivityStart = new Handler(){
             @Override
@@ -24,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         //Download Splash Image from Server
-        //loadBackgroundImage();
+        loadBackgroundImage();
         //Display downloaded image on screen
         displaySplashImage();
         //pause screen for some time and load next activity's content from serever
@@ -35,21 +41,22 @@ public class MainActivity extends ActionBarActivity {
 
     private void loadBackgroundImage(){
         //downloading splash image on phone
-        /*Runnable runnableLoadSplash = new Runnable() {
+        Runnable runnableLoadSplash = new Runnable() {
             @Override
             public void run() {
-                //required code
-
+                //required code to load splash Image
+                handleSplashImageDisplay.sendEmptyMessage(0);
             }
         };
-        Thread threadLoadSplash = new Thread(runnableLoadSplash);*/
+        Thread threadLoadSplash = new Thread(runnableLoadSplash);
+        threadLoadSplash.start();
     };
 
     public void displaySplashImage(){
+        //load image from sd card in real app
+
         ImageView imageView1 = (ImageView) findViewById(R.id.splashImage1Id);
-        ImageView imageView2 = (ImageView) findViewById(R.id.splashImage2Id);
-        imageView1.setImageResource(R.drawable.splashimage1);
-        imageView2.setImageResource(R.drawable.splashimage2);
+        imageView1.setImageResource(R.drawable.splashimage);
     };
 
     private void pauseSplashLoadContent(){
@@ -63,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
                         try{
                             wait(FutureTime - System.currentTimeMillis());
                             /*
-                            code for loading next activity page data goes here
+                            pausing the splash screen
                              */
                         }
                         catch(Exception ex){

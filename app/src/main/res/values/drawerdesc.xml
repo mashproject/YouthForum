@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="drawerOption">
+        <item>App Name</item>
+        <item>About</item>
+        <item>News Feed</item>
+        <item>Partners</item>
+        <item>Schedule</item>
+        <item>Events</item>
+        <item>Social</item>
+        <item>Venues</item>
+        <item>Delegates</item>
+        <item>Favourites</item>
+        <item>Help Desk</item>
+    </string-array>
+</resources>

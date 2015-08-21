@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 
 public class EventSpeakerPage extends ActionBarActivity {
@@ -15,16 +17,20 @@ public class EventSpeakerPage extends ActionBarActivity {
             displaySpeakerData();
         }
     };
-    int eventId;
+    String eventId;
+    String speakerName[];
+    ListAdapter listAdapter;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_speaker_page);
+        listView = (ListView) findViewById(R.id.speakerListViewId);
 
         //gathering data from past activity that was passed via intent extras
         Bundle bundle = getIntent().getExtras();
-        eventId = ((Integer) bundle.get("eventId")).intValue();
+        eventId = bundle.getString("eventId");
 
         loadSpeakerList();
     }
@@ -34,18 +40,22 @@ public class EventSpeakerPage extends ActionBarActivity {
             @Override
             public void run() {
                 /*
-                database linking code and retrieval
+                database linking code and retrieval using eventId
                  */
                 /*
-                storing values at xml file from server
+                initialise speaker name list for retrieving name of speakers in an event
                  */
+                speakerName = new String[]{"1","2", "3", "4"};
                 handleSpeakerDisplay.sendEmptyMessage(0);
             }
         };
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 
     private void displaySpeakerData(){
-
+        listAdapter = new SpeakerAdapter(this, speakerName, eventId);
+        listView.setAdapter(listAdapter);
     }
 
     @Override
@@ -53,20 +63,5 @@ public class EventSpeakerPage extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_event_speaker_page, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

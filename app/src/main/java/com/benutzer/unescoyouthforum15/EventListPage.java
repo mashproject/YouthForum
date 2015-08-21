@@ -14,79 +14,82 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-public class BrowseEvents extends BaseDrawerActivity {
-    Handler handleCategoryDisplay = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            displayCategoryList();
-        }
-    };
-    String category[];
+public class EventListPage extends BaseDrawerActivity {
     ListAdapter listAdapter;
     ListView listView;
+
+    Handler handleEventListDisplay = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            displayEventList();
+            setListenerToEventList();
+        }
+    };
+
+    String eventsList[];
+    String categoryName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_browse_events);
+        setContentView(R.layout.activity_event_list_page);
         super.onCreateDrawer();
+        listView = (ListView) findViewById(R.id.eventListViewId);
 
-        listView = (ListView) findViewById(R.id.browseEventListID);
+        Bundle bundle = getIntent().getExtras();
+        categoryName = ((String) bundle.get("category"));
 
-        loadCategoryList();
-        setListenerToCategoryList();
+        loadEventList();
+
     }
 
-    private void loadCategoryList(){
+    private void loadEventList(){
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 /*
-                database linking code and retrieval for loading category name list
+                database linking code and retrieval for loading event name list
                  */
                 /*
-                initialise category (Array) for retrieving details of category
+                initialise event  list(Array) for retrieving details of category
                  */
-                category = new String[]{"1","2", "3", "4"};
-                handleCategoryDisplay.sendEmptyMessage(0);
+                eventsList = new String[]{"1","2", "3", "4"};
+                handleEventListDisplay.sendEmptyMessage(0);
             }
         };
         Thread thread = new Thread(runnable);
         thread.start();
     }
 
-    private void displayCategoryList(){
-        listAdapter = new CategoryAdapter(this, category);
+    private void displayEventList(){
+        listAdapter = new EventAdapter(this, eventsList);
         listView.setAdapter(listAdapter);
     }
 
-    private void setListenerToCategoryList(){
+    private void setListenerToEventList(){
         listView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String categoryName = ((TextView) view.findViewById(R.id.hiddenViewId)).getText().toString();
-                        createEventList(categoryName);
+                       String event = ((TextView) view.findViewById(R.id.hiddenViewEventId)).getText().toString();
+
+                        createEventPage(event);
                     }
                 }
         );
     }
 
-    private void createEventList(String category){
-        Intent intent = new Intent(this, EventListPage.class);
-        intent.putExtra("category", category);
+    private void createEventPage(String id){
+        Intent intenta = new Intent(this, EventPage.class);
+        intenta.putExtra("eventId", id);
 
-        startActivity(intent);
+        startActivity(intenta);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_browse_events, menu);
+        getMenuInflater().inflate(R.menu.menu_event_list_page, menu);
         return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 }
